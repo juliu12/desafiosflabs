@@ -1,31 +1,38 @@
 const express = require('express');
 const router = express.Router();
 
-// Insere um usuario
+
 router.post('/', (req, res, next)=>{
+    
+    var user = {
+        id_user: req.body.id_user,
+        nome: req.body.nome,
+        email: req.body.email,
+        cpf: req.body.cpf,
+        role: req.body.role
+    }; 
     res.status(201).send({
-        mensagem: 'Método POST para rota usuário'
+        mensagem: 'Usuário ${nome} criado'
     });
 });
 
-// Retorna dados de um usuario
-router.get('/:id', (req,res, next)=>{
-    const id = req.params.id
+router.get('/', (req,res, next)=>{
+    
     res.status(200).send({
-        mensagem: 'Usando método GET para usuario',
-        id: id
+        mensagem: 'Usuário ${id_user} selecionado',
+        
     });
 });
-//  Altera um usuario
+
 router.patch('/', (req, res, next)=>{
     res.status(201).send({
-        mensagem:'Usando método PATCH para usuario'
+        mensagem:'Usuário ${id_user} modificado'
     });
 });
-//  Deleta um usuario
+
 router.delete('/', (req, res, next)=>{
     res.status(201).send({
-        mensagem:'Usando método DELETE para usuario'
+        mensagem:'Usuário ${id_user} deletado'
     });
 });
 

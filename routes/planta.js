@@ -1,17 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
-// Insere uma planta
+
 router.post('/', (req, res, next)=>{
+    
+    var planta ={
+        planta: req.body.planta
+    };
     res.status(201).send({
-        mensagem: 'Método POST para rota planta'
+        mensagem: 'Planta ${id_empresa} criada'
     });
 });
 
-//  Deleta uma planta
+
 router.delete('/', (req, res, next)=>{
     res.status(201).send({
-        mensagem:'Usando método DELETE para planta'
+        mensagem:'Planta ${planta} removida'
     });
 });
 

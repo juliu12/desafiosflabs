@@ -1,31 +1,44 @@
 const express = require('express');
 const router = express.Router();
 
-// Insere uma empresa
+
 router.post('/', (req, res, next)=>{
+    
+    var empresa = {
+        id_empresa: req.body.id_empresa,
+        nome: req.body.nome,
+        cnpj: req.body.cnpj,
+        cep: req.body.cep,
+        endereco: req.body.endereco,
+        numero: req.body.numero,
+        cidade: req.body.cidade,
+        estado: req.body.estado,
+        users: req.body.users,
+        empresas: req.body.empresas
+    };
     res.status(201).send({
-        mensagem: 'Método POST para rota empresa'
+        mensagem: 'Empresa ${id_empresa} criada'
     });
 });
 
-// Retorna dados de uma empresa
-router.get('/:id', (req,res, next)=>{
-    const id = req.params.id
+
+router.get('/', (req,res, next)=>{
+   
     res.status(200).send({
-        mensagem: 'Usando método GET para empresa específica',
-        id: id
+        mensagem: 'Empresa ${id_empresa} selecionada'
+       
     });
 });
-//  Altera uma empresa
+
 router.patch('/', (req, res, next)=>{
     res.status(201).send({
-        mensagem:'Usando método PATCH para empresa'
+        mensagem:'Empresa ${id_empresa} modificada'
     });
 });
-//  Deleta uma empresa
+
 router.delete('/', (req, res, next)=>{
     res.status(201).send({
-        mensagem:'Usando método DELETE para empresa'
+        mensagem:'Empresa ${id_empresa} deletada'
     });
 });
 
