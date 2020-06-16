@@ -12,27 +12,28 @@ router.post('/', (req, res, next)=>{
         role: req.body.role
     }; 
     res.status(201).send({
-        mensagem: 'Usuário ${nome} criado'
+        mensagem: 'Rota POST usuário',
+        usuarioCriado: user
     });
 });
 
 router.get('/', (req,res, next)=>{
     
     res.status(200).send({
-        mensagem: 'Usuário ${id_user} selecionado',
+        mensagem: 'Rota GET usuário',
         
     });
 });
 
 router.patch('/', (req, res, next)=>{
     res.status(201).send({
-        mensagem:'Usuário ${id_user} modificado'
+        mensagem:'Rota PATCH usuário'
     });
 });
 
 router.delete('/', (req, res, next)=>{
     res.status(201).send({
-        mensagem:'Usuário ${id_user} deletado'
+        mensagem:'Rota DELETE usuário'
     });
 });
 

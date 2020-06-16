@@ -8,14 +8,15 @@ router.post('/', (req, res, next)=>{
         planta: req.body.planta
     };
     res.status(201).send({
-        mensagem: 'Planta ${id_empresa} criada'
+        mensagem: 'Rota POST planta'
+        
     });
 });
 
 
 router.delete('/', (req, res, next)=>{
     res.status(201).send({
-        mensagem:'Planta ${planta} removida'
+        mensagem:'Rota DELETE planta'
     });
 });
 

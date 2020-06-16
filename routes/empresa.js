@@ -13,32 +13,32 @@ router.post('/', (req, res, next)=>{
         numero: req.body.numero,
         cidade: req.body.cidade,
         estado: req.body.estado,
-        users: req.body.users,
-        empresas: req.body.empresas
+        users : [req.body.users] ,
+        empresas: [req.body.empresas]
     };
     res.status(201).send({
-        mensagem: 'Empresa ${id_empresa} criada'
-    });
+        mensagem: 'Empresa criada',
+        empresaCriada: empresa
+    })
 });
-
 
 router.get('/', (req,res, next)=>{
    
     res.status(200).send({
-        mensagem: 'Empresa ${id_empresa} selecionada'
+        mensagem: 'Rota GET empresa'
        
     });
 });
 
 router.patch('/', (req, res, next)=>{
     res.status(201).send({
-        mensagem:'Empresa ${id_empresa} modificada'
+        mensagem:'Rota PATCH empresa'
     });
 });
 
 router.delete('/', (req, res, next)=>{
     res.status(201).send({
-        mensagem:'Empresa ${id_empresa} deletada'
+        mensagem:'Rota DELETE empresa'
     });
 });
 

@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parse');
+const bodyParser = require('body-parser');
 
 
 const rotaEmpresa = require('./routes/empresa');
@@ -9,6 +9,13 @@ const rotaPlanta = require('./routes/planta');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+app.use((req, res, next) =>{
+    if(req.method === 'OPTIONS'){
+        res.header('POST,GET, PATCH, DELETE');
+        return res.status(200).send({});
+    }
+});
 
 
 app.use('/empresa', rotaEmpresa);
