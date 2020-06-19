@@ -1,11 +1,11 @@
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
 
 
-const rotaEmpresa = require('./routes/empresa');
-const rotaUser = require('./routes/user');
-const rotaPlanta = require('./routes/planta');
+var rotaEmpresa = require('./routes/empresa');
+var rotaUser = require('./routes/user');
+var rotaPlanta = require('./routes/planta');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -17,13 +17,12 @@ app.use((req, res, next) =>{
     }
 });
 
-
 app.use('/empresa', rotaEmpresa);
 app.use('/user', rotaUser);
 app.use('/planta',rotaPlanta);
 
 app.use((req,res, next)=>{
-    const erro = new Error('Rota não encontrada');
+    var erro = new Error('Rota não encontrada');
     erro.status = 404;
     next(erro);
 });
